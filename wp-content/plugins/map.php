@@ -10,7 +10,6 @@ class map{
     
     private $lat;
     private $lng;
-    private $imgUrl;
     private $add;
     private $phone;
     private $email;
@@ -31,7 +30,6 @@ class map{
         $this->lng =  get_option('_blog_lng');
         $this->maplat =  get_option('_map_lat');
         $this->maplng =  get_option('_map_lng');
-        $this->imgUrl = get_option('_maker_url');
         $this->add =  get_option('_blog_add');
         $this->phone =  get_option('_blog_phone');
         $this->email =  get_option('_blog_email');  
@@ -116,20 +114,17 @@ class map{
                 $bloglng = $_POST['bloglng'] == "" ? $bloglat : $_POST['bloglng'];
                 add_option('_blog_lng', $bloglng , '', 'yes');
                 
-                $maplat = $_POST['maplat'] == "" ? $bloglng : $_POST['maplat'];
+                $maplat = $_POST['bloglat'] == "" ? "" : $_POST['bloglat'];
                 add_option('_map_lat', $maplat , '', 'yes');
                 
-                $maplng = $_POST['maplng'] == "" ? "" : $_POST['maplng'];
+                $maplng = $_POST['bloglng'] == "" ? $bloglat : $_POST['bloglng'];
                 add_option('_map_lng', $maplng , '', 'yes');
-                
-                $blogmaker = $_POST['blogmakerurl'] == "" ? "" : $_POST['blogmakerurl'];
-                add_option('_maker_url', $blogmaker , '', 'yes');
                 
                 $blogapi = $_POST['googlemapapi'] == "" ? "" : $_POST['googlemapapi'];
                 add_option('googlemapapi', $blogapi , '', 'yes');
                 echo("<div class='updated'><p><strong>Setting saved</strong></p></div>");
                 
-                $this->getData();
+                
             }
         ?>
             
@@ -177,7 +172,7 @@ class map{
                                 <p class="description">Longitude get from google map</p>
                             </td>
                         </tr>
-                        <tr>
+<!--                        <tr>
                             <th scope="row"><label for="maplat">Map Latitude </label></th>
                             <td>
                                 <input name="maplat" type="text"  value="<?php echo $this->maplat?>" class="regular-text ltr">
@@ -190,19 +185,7 @@ class map{
                                 <input name="maplng" type="text"  value="<?php echo $this->maplng?>" class="regular-text ltr">
                                 <p class="description">Map position Longitude</p>
                             </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><label for="blogmakerurl">Maker image</label></th>
-                            <td>
-                                <input name="blogmakerurl" type="text" id="blogemail" value="<?php echo $this->imgUrl?>" class="regular-text ltr">
-                                <p class="description">
-                                    <?php 
-                                        if($this->imgUrl!=false)
-                                            echo("<img width=64 src='".$this->imgUrl."' />");
-                                    ?>
-                                    Google Map marker Url</p>
-                            </td>
-                        </tr>
+                        </tr>-->
                         <tr>
                             <th scope="row"><label for="googlemapapi">Google map API</label></th>
                             <td>
