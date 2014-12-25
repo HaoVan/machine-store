@@ -22,7 +22,7 @@ define('DB_NAME', 'machine_store');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -51,6 +51,10 @@ define('SECURE_AUTH_SALT', 'Ll=j1ZOWR+#z|^!<N|^d/LljG&~yINpNGk^)Z*emN#hE&r-uZlV&
 define('LOGGED_IN_SALT',   'L71%@{:sn0-0J,5O@+C|Trsfr:FUXriM1OR?Va5h@qV7 fz4O,/H& b8I/:Rp.PB');
 define('NONCE_SALT',       'jV~6EddOQ#ZWm+=BC?!JqX81~UgJ+1}I*]yA/kx6de|CpbPl=pE8i8.H!&/a&];J');
 
+
+
+
+
 /**#@-*/
 
 /**
@@ -59,6 +63,14 @@ define('NONCE_SALT',       'jV~6EddOQ#ZWm+=BC?!JqX81~UgJ+1}I*]yA/kx6de|CpbPl=pE8
  * You can have multiple installations in one database if you give each a unique
  * prefix. Only numbers, letters, and underscores please!
  */
+define( 'WP_ALLOW_MULTISITE', true );
+define('MULTISITE', true);
+define('SUBDOMAIN_INSTALL', false);
+define('DOMAIN_CURRENT_SITE', 'machine-store.dev');
+define('PATH_CURRENT_SITE', '/');
+define('SITE_ID_CURRENT_SITE', 1);
+define('BLOG_ID_CURRENT_SITE', 1);
+
 $table_prefix  = 'wp_';
 
 /**
